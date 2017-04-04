@@ -1,3 +1,34 @@
 body{
-  background: salmon;
+  background: red;
+  text-align: center;
+}
+
+.hole {
+  border: 5px solid black;
+  width: 120px;
+  height: 120px;
+  border-radius:70px;
+  /*float: left;*/
+  margin: 20px;
+  display: inline-block;
+
+}
+
+.grid {
+width: 100%;
+}
+
+ul {
+  list-style: none;
+
+}
+.color2{
+  background-color: yellow;
+}
+
+.color {
+  background-color: black;
+}
+.pause{
+  display: none;
 }

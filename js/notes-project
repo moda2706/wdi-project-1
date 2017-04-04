@@ -1,0 +1,68 @@
+$(function() {
+//
+//   // console.log(Math.floor(Math.random() * 100));
+//
+//   const $start = $('.play');
+//   const $holes = $('li');
+//   let timerId = 0;
+//   let counter = 0;
+//
+//   // const $holesId = $holes[Math.floor(Math.random() * $holes.length)];
+//
+//   function randomNumber() {
+//     console.log('colorrunning');
+//     return Math.floor(Math.random() * $holes.length);
+//   }
+//
+//
+//   // const $holes = $('li').toArray();
+//   // const $holesId = $holes[num];
+//   // console.log(Math.floor(Math.random() * $holes.length));
+//
+//   // console.log(num);
+//   console.log($holes);
+//   // console.log($holesId);
+//
+//
+//   $($holes).on('click', function(e) {
+//     // console.log('hello');
+//     if ($(e.target).hasClass('color')){
+//       counter++;
+//       console.log(counter);
+//       $('.score').html('Score: '+ counter);
+//       // console.log('Well done');
+//     }else{
+//       console.log('You missed it buddy!');
+//     }
+//
+//     // listId.toggleClass('color');
+//     // $('li').css('background-color','black');
+//     // $('li').addClass('color');
+//     // if ($($holes).hasClass('color')) {
+//     //   $($holes).removeClass('color');
+//     // } else {
+//     //   $($holes).addClass('color');
+//     //
+//     // }
+//
+//
+//
+//   });
+//   $start.on('click', function() {
+//     timerId = setInterval(function() {
+//       $($holes).removeClass('color');
+//       $($holes[randomNumber()]).addClass('color');
+//     },1000);
+//     $('.pause').css('display', 'inline-block');
+//     $('.pause').on('click', function(){
+//       clearInterval(timerId);
+//       $($holes).removeClass('color');
+//     });
+//   });
+//
+//
+//
+//
+//
+//
+// });
