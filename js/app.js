@@ -45,19 +45,19 @@ function start () {
   $('#play').on('click', play); // this is the function when clicked on button play this will start the game
 }
 
-function go() {
+function play() {
   holeArray = [];
   score = 0;
   playerScore = 0;
   count = 30;
-  counter = 0;
+  // counter = 0;
   timerInterval = setInterval(timer, 1500);
   $('#timer').html(count);
-  $('.score').empty();
+  $('.scoreBoard').empty();
 
   function timer() {
     count -= 1;
-    if(count = 0) endGame();
+    if(count === 0) endGame();
     $('#timer').html(count);
   }
   gameStart();
@@ -82,10 +82,10 @@ function showHoles(array) {
     logScore(dicktator);
   });
 
-  setTimeOut(function(){
-    $(hole).css('background-img', none);
+  setTimeout(function(){
+    $(hole).css('background-img', 'none');
     $(hole).off();
-    counter ++;
+    count++;
   }, 1000);
 
 }
@@ -100,5 +100,4 @@ function endGame () {
   $('#play').html('Play On');
   timerInterval = clearInterval(timerInterval);
   holesInterval = clearInterval(holesInterval);
-
 }
