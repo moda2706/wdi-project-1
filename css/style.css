@@ -1,5 +1,5 @@
 body{
-  background: red;
+  background-image:  red;
   text-align: center;
 }
 
@@ -11,22 +11,28 @@ body{
   /*float: left;*/
   margin: 20px;
   display: inline-block;
-
 }
-
-.grid {
-width: 100%;
-}
-
-ul {
-  list-style: none;
-
-}
+/*
+.hole:active{
+  width:200px ;
+  height:200px;
+  position:relative;
+  /*right: -65px;
+  top: 200px ;*/
 
 
-.color {
-  background-color: black;
-}
-.pause{
-  display: none;
-}
+  .grid {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+
+  .color {
+    background-color: black;
+  }
+  .pause{
+    display: none;
+  }
