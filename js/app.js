@@ -1,52 +1,59 @@
 $(start);
 
 var holeArray;
-// var play;
 var score;
 var playerScore;
 var count;
 var timerInterval, holesInterval;
 var holes = $('.hole');
+let board;
 
-// function dick () {
 
 var object = [
   {
     name: 'Trump',
-    img: 'http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/12907283_1534460133516959_1809099959_n.jpg?ig_cache_key=MTIyMzA3OTM3MTExNjk0MDMxMA%3D%3D.2',
+    img: 'images/trump.jpg',
     speed: 1500,
-    score: 5
+    score: 15
   }, {
     name: 'Putin',
-    img: 'http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/10963991_448832521980180_2056659417_n.jpg?ig_cache_key=MTIxMzgwNTMwNDUyMjI0NzUxNQ%3D%3D.2',
-    speed: 1000,
+    img: 'images/putin.jpg',
+    speed: 1250,
     score: 10
   }, {
     name: 'KimJong-un',
-    img: 'http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13098910_874458652699718_548370333_n.jpg?ig_cache_key=MTIzNTQ0MzQ5MjM0OTA1Mzk5Mw%3D%3D.2',
-    speed: 2000,
+    img: 'images/kim.jpg',
+    speed: 1000,
     score: 5
   }, {
     name: 'Obama',
-    img: 'http://scontent.cdninstagram.com/t51.2885-15/e35/1390271_1697286650559505_1043272681_n.jpg?ig_cache_key=MTIwOTQyODk4Mzg3NjcxNzk4Nw%3D%3D.2',
-    speed: 750,
+    img: 'images/obama.jpg',
+    speed: 2000,
     score: 0
   }
 ];
 
 
 function start () {
-  $('.play').on('click', play); // this is the function when clicked on button play this will start the game
-  $('.reset').on('click', reset);
+  $('.play').one('click', play); // this is the function when clicked on button play this will start the game
+  $('.reset').one('click', reset);
+  $('.instructions').on('click', showInstructions);
+}
+
+function showInstructions() {
+  $('.instructions-body').toggleClass('hidden');
 }
 
 function play() {
-  $('.play').off();
+  $(this).html('Reset');
+  $(this).one('click', reset);
+
+  $('.play').css('line-height', '60px');
+
   holeArray = [];
   score = 0;
   playerScore = 0;
   count = 30;
-  // counter = 0;
   $('#timer').html(count);
   timerInterval = setInterval(timer, 1000);
   $('.scoreBoard').empty();
@@ -56,7 +63,7 @@ function play() {
 function timer() {
   count -= 1;
   if(count === 0) endGame();
-  $('#timer').html(count);
+  $('.timer span').html(count);
 }
 
 function gameStart() {
@@ -75,10 +82,11 @@ function showHoles(array) {
   $(hole).off();
   $(hole).on('click', function(){
     logScore(dicktator, hole);
+    const audio = new Audio('./Sounds/slap.wav');
+    audio.play();
   });
 
   setTimeout(function(){
-    // dick();
     $(hole).css('background-image', 'none');
     $(hole).off();
   }, dicktator.speed);
@@ -87,32 +95,40 @@ function showHoles(array) {
 
 function logScore(dicktator, hole) {
   if (dicktator.name === 'Obama') {
+    const audio1 = new Audio('./Sounds/game_over.wav');
+    audio1.play();
     endGame();
   } else {
     score += dicktator.score;
-    $('.scoreboard').html(`Score: ${score}`);
+    $('.scoreboard span').html(score);
   }
-  $('.scoreBoard').html(score);
-  console.log(score);
+  $('.scoreBoard span').html(score);
   $(hole).css('background-image', 'none');
   $(hole).off();
 }
 
-function endGame () {
-  $('.scoreBoard').html('game over loser' + 'you hit ' + score + 'dicktators');
-  $('#play').html('Play On');
+function endGame() {
+  $(`<div class="game-over">Game Over, you scored ${score}</div>`).appendTo('main');
   clearInterval(timerInterval);
   clearInterval(holesInterval);
-  // $('#timer').html(30);
   score = 0;
   playerScore = 0;
   count = 0;
+  $('.timer span').html(30);
+  $('.scoreboard span').html(score);
+  $('.play').css('line-height', '30px');
+  $('.play').html('Play Again');
+  $('.play').one('click', play);
 }
 
 function reset () {
+  $(this).html('Play');
+  $('.game-over').remove();
+  clearInterval(timerInterval);
+  clearInterval(holesInterval);
   score = 0;
-  $('.scoreboard').html(`Score: ${score}`);
-  $('.play').on();
-  $('#timer').html(30);
-  // console.log('clicked');
+  count = 0;
+  $('.scoreboard span').html(score);
+  $('.timer span').html(30);
+  $('.play').one('click', play);
 }

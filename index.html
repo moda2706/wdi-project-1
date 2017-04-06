@@ -5,47 +5,48 @@
   <title>Whack A Dicktator</title>
   <link rel="stylesheet" href="./css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script src="js/app.js"></script>
 </head>
 <body>
-
-  <div class="Instructions">
+  <main>
+    <h1>Wh@ack A D!cktat0r</h1>
+    <hr>
+    <h2>Have you ever wanted to smack our idiotic leaders in the face? Well now you can!</h2>
+    <div class="score-timer">
+      <div class="scoreboard">Score <span>0</span></div>
+      <div class="timer">Timer <span>30</span></div>
+      <div class="instructions">Instructions</div>
+      <div class="play">Play</div>
+    </div>
+    <div class="instructions-body hidden">
+      <p>
+        Whack Trump to win 15 points
+        Whack Putin to win 10 points
+        Whack Kim Jong-Un to win 5 points
+        Whack Obama, Game Over!
+      </p>
+    </div>
     <ul>
-      <p>Have you ever wanted to smack our idiotic leaders in the face? Well now you can!</p>
-      <li>Whack Trump to win 4points</li>
-      <li>Whack Putin to win 9 points</li>
-      <li>Whack Mugabe to win 10 </li>
+      <li class="hole" id="1"></li>
+      <li class="hole" id="2"></li>
+      <li class="hole" id="3"></li>
+      <li class="hole" id="4"></li>
+      <li class="hole" id="5"></li>
+      <li class="hole" id="6"></li>
+      <li class="hole" id="7"></li>
+      <li class="hole" id="8"></li>
+      <li class="hole" id="9"></li>
+      <li class="hole" id="10"></li>
+      <li class="hole" id="11"></li>
+      <li class="hole" id="12"></li>
+      <li class="hole" id="13"></li>
+      <li class="hole" id="14"></li>
+      <li class="hole" id="15"></li>
     </ul>
 
-  </div>
-
-  <h1>Wh@ack A D!cktat0r</h1>
-
-  <div class="grid">
-  <button class="play">Play</button>
-  <div class="scoreboard">Score: 0</div>
-  <div class="timer" id="timer"></div>
-
-  </div>
-  <ul>
-    <li class ="hole" id="1"></li>
-    <li class ="hole" id="2"></li>
-    <li class ="hole" id="3"></li>
-    <li class ="hole" id="4"></li>
-    <br>
-    <li class ="hole" id="5"></li>
-    <li class ="hole" id="6"></li>
-    <li class ="hole" id="7"></li>
-    <li class ="hole" id="8"></li>
-    <br>
-    <li class ="hole" id="9"></li>
-    <li class ="hole" id="10"></li>
-    <li class ="hole" id="11"></li>
-    <li class ="hole" id="12"></li>
-  </ul>
-  </div>
-
-  <button class="reset">Reset</button>
-
+    <!-- <audio class="slap" src="./Sounds/slap.wav"></audio>
+    <audio class="gameOver" src="./Sounds/game_over.wav"></audio> -->
+  </main>
 </body>
 </html>
